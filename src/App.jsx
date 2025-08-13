@@ -17,9 +17,17 @@ import './App.css';
  * - Clock 컴포넌트: componentRunning 상태가 true일 때만 렌더링됩니다.
  */
 function App() {
+  const [componentRunning, setComponentRunning] = useState(false);
   return (
     <>
-      <div className="container"></div>
+      <div className="container">
+      <button className={ComponentRunning ? 'btn-start' : 'btn-end'}
+      onClick={() => setComponentRunning(!ComponentRunning)}>
+        {!ComponentRunning ? '컴포넌트 시작' : '컴포넌트 중지'}
+      </button>
+      <br />
+      {ComponentRunning && <Clock />}
+      </div>
     </>
   );
 }
